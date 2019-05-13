@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dietter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <header>
+    <div class="menu">
+    <ul>
+      <% if user_signed_in? %>
+
+      <% else %>
+    <li id="header-list"><i class="fas fa-user-plus"></i>
+      <%= link_to "新規登録", new_user_registration_path %>
+    </li>
+    <li id="header-list"><i class="fas fa-sign-in-alt"></i>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+    </ul>
+  </div>
+</header>
+      <% end %>
+  <body>
+    <div id="wrapper">
+
+    <%= yield %>
+    </div>
+    <footer>
+      <% if user_signed_in? %>
+      <div class="flexbox">
+      <div class="flexbox-item fas fa-home"></i>
+        <%= link_to 'ホーム', dietter_path %>
+      </div>
+      <div class="flexbox-item fas fa-smile"></i>
+        <%= link_to 'マイページ', users_top_path %>
+      </div>
+      <div class="flexbox-item fas fa-user-edit"></i>
+        <%= link_to 'プロフィール編集', edit_user_path(current_user.id) %>
+      </div>
+      <div class="flexbox-item fas fa-user-edit"></i>
+      <%= link_to 'お問い合わせ', new_contact_path %>
+    </div>
+    <div class="flexbox-item fas fa-sign-out-alt"></i>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
+    </div>
+      <% else %>
+    <p class="fotter-text">CopyRight 2019 dietter All right reserved.</p>
+      <% end %>
+    </footer>
+  </div>
+  </body>
+</html>

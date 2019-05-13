@@ -1,0 +1,58 @@
+<h1>プロフィール編集</h1>
+　<%=  form_for(@user) do |f| %>
+  <div class="field">
+    <%= f.label :名前（ニックネーム可） %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :性別 %><br />
+    <%= f.select :gender, [["女性", "1"], ["男性", "2"]] %>
+  </div>
+
+　<div class="field">
+    <%= f.label :身長 %><br />
+    <%= f.text_field :height, :placeholder => "  160.0", autofocus: true %><span> cm</span>
+  </div>
+
+  <div class="field">
+    <%= f.label :体重 %><br />
+    <%= f.text_field :weight, :placeholder => "  50.0", autofocus: true %><span> kg</span>
+  </div>
+
+  <div class="field">
+    <%= f.label :目標体重 %><br />
+    <%= f.text_field :ideal_weight, :placeholder => "  48.0", autofocus: true %><span> kg</span>
+  </div>
+
+  <div class="field">
+    <%= f.label :年代 %><br />
+    <%= f.select :age, [["10代", "1"], ["20代", "2"], ["30代", "3"], ["40代", "4"], ["50代", "5"], ["60代", "6"]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード %>
+    <% if @minimum_password_length %>
+    <em>( <%= @minimum_password_length %> 〜10文字の半角英数字 )</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :パスワード確認 %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新" %>
+  </div>
+
+<%= link_to "戻る", :back %>
+
+<%= link_to "アカウントを削除する", users_delete_path(current_user.id) %>
+<% end %>

@@ -1,0 +1,32 @@
+<h1>管理者側:ユーザー詳細</h1>
+
+<div class = 'user_information'>
+	<ul>
+		<li class="name">
+			<h2> 名前　<%= @user.name %></h2>
+		</li>
+		<li class="gender">
+			<h2> 性別　<%= @user.gender %></h2>
+		</li>
+		<li class="height">
+			<h2> 身長　<%= @user.height %></h2>
+		</li>
+		<li class="weight">
+			<h2> 体重　<%= @user.weight %></h2>
+		</li>
+		<li class="ideal_weight">
+			<h2> 目標体重　<%= @user.ideal_weight %></h2>
+        </li>
+        </li>
+		<li class="age">
+			<h2> 年代　<%= @user.age %></h2>
+		</li>
+		<li class="email">
+			<h2> メールアドレス　<%= @user.email %></h2>
+		</li>
+    </ul>
+
+    <% if current_user.admin? && !(current_user == user) %>
+    <%= link_to "削除", users_index_path, class: "btn btn-danger user_#{@user.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  <% end %>
+</div>
