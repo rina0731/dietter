@@ -9,43 +9,30 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
-    <div class="menu">
-    <ul>
-      <% if user_signed_in? %>
 
-      <% else %>
-    <li id="header-list"><i class="fas fa-user-plus"></i>
-      <%= link_to "新規登録", new_user_registration_path %>
-    </li>
-    <li id="header-list"><i class="fas fa-sign-in-alt"></i>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    </ul>
-  </div>
-</header>
-      <% end %>
-  <body>
-    <div id="wrapper">
+<body>
+  <div id="wrapper">
+    <header>
+  </header>
 
-    <%= yield %>
-    </div>
-    <footer>
-      <% if user_signed_in? %>
-      <div class="flexbox">
-      <div class="flexbox-item fas fa-home"></i>
+  <%= yield %>
+
+  <footer>
+  <% if user_signed_in? %>
+    <div class="flexbox">
+      <div class="flexbox-item fas fa-home">
         <%= link_to 'ホーム', dietter_path %>
       </div>
-      <div class="flexbox-item fas fa-smile"></i>
+      <div class="flexbox-item fas fa-smile">
         <%= link_to 'マイページ', users_top_path %>
       </div>
-      <div class="flexbox-item fas fa-user-edit"></i>
+      <div class="flexbox-item fas fa-user-edit">
         <%= link_to 'プロフィール編集', edit_user_path(current_user.id) %>
       </div>
-      <div class="flexbox-item fas fa-user-edit"></i>
+      <div class="flexbox-item fas fa-user-edit">
       <%= link_to 'お問い合わせ', new_contact_path %>
-    </div>
-    <div class="flexbox-item fas fa-sign-out-alt"></i>
+      </div>
+      <div class="flexbox-item fas fa-sign-out-alt">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </div>
     </div>
@@ -54,5 +41,5 @@
       <% end %>
     </footer>
   </div>
-  </body>
+</body>
 </html>

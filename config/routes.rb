@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   root 'users#top'
   resources :users, :except => [:new, :create]
   resources :contacts, only: [:new, :create, :update, :index, :show]
-
+  
+  get '/weights/predict' => 'weights#new'
+  post '/weights/predict' => 'weights#new'
 end

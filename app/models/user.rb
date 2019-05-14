@@ -5,5 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, password_length: 6..10
 
          has_many :contacts
+
+         has_many :weights, dependent: :destroy
+
          acts_as_paranoid
+
+
 end
