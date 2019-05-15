@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   
   get '/weights/predict' => 'weights#new'
   post '/weights/predict' => 'weights#new'
+
+  get '/weights/calc' => 'weights#calc'
+  post '/weights/calc' => 'weights#calc'
 end

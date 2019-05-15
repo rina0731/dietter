@@ -6,5 +6,10 @@ class WeightsController < ApplicationController
 	  latest_weight = @user.weight
     end
 
+    def calc
+      @weight = Weight.new
+	  @user = current_user
+	  latest_weight = @user.weight
+	end
 
 end
