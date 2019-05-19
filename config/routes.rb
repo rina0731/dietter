@@ -8,16 +8,17 @@ Rails.application.routes.draw do
   patch 'users/update'
   get 'users/edit_complete'
   get 'users/complete'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/dietter' => 'home#top'
   root 'users#top'
   resources :users, :except => [:new, :create]
   resources :contacts, only: [:new, :create, :update, :index, :show]
-  
+
+resources :weights, only: [:index]
   get '/weights/predict' => 'weights#new'
   post '/weights/predict' => 'weights#new'
 
   get '/weights/calc' => 'weights#calc'
   post '/weights/calc' => 'weights#calc'
+
 end

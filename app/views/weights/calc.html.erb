@@ -1,7 +1,7 @@
 <h1>カロリー計算</h1>
 
 <% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
-<%= time.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
+<%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
 
 <h2>
 <%= @user.weight %> kg</h2>
@@ -61,6 +61,8 @@ button.addEventListener("click", function(e) {
     // 計算の結果を別の入力フォームに表示
     var resultForm = document.getElementById("resultForm");
     resultForm.value = idealcalory;
+    // 小数点以下を切り捨て
+    resultForm.value = Math.floor(resultForm.value);
 });
 
 </script>

@@ -25,7 +25,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to top_path
+    @weight = @user.weights.build(latest_weight: @user.weight)
+    @weight.save
+    redirect_to users_top_path
   end
 
   def edit_complete

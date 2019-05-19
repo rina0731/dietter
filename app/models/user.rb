@@ -4,11 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, password_length: 6..10
 
-         has_many :contacts
+  has_many :contacts
 
-         has_many :weights, dependent: :destroy
+  has_many :weights, dependent: :destroy
 
-         acts_as_paranoid
-
+  acts_as_paranoid
 
 end

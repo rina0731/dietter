@@ -1,0 +1,12 @@
+<h1>体重管理グラフのページ</h1>
+<% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
+<%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
+
+<h2>
+<%= @user.weight %> kg</h2>
+
+<h2> BMI
+<%= (@user.weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+
+
+<%= high_chart("sample", @graph) %>
