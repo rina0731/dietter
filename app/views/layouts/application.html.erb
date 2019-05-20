@@ -21,7 +21,7 @@
   <% if user_signed_in? %>
     <div class="flexbox">
       <div class="flexbox-item fas fa-home">
-        <%= link_to 'ホーム', dietter_path %>
+        <%= link_to 'ホーム', destroy_user_session_path, method: :delete %>
       </div>
       <div class="flexbox-item fas fa-smile">
         <%= link_to 'マイページ', users_top_path %>

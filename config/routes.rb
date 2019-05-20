@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/complete'
 
   get '/dietter' => 'home#top'
-  root 'users#top'
+  root 'home#top'
   resources :users, :except => [:new, :create]
   resources :contacts, only: [:new, :create, :update, :index, :show]
 

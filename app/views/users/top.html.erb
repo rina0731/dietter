@@ -1,4 +1,7 @@
 <h1>マイページ</h1>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <%= link_to '体重の増減予測', weights_predict_path %>
 
 <%= link_to '目標カロリー計算', weights_calc_path %>

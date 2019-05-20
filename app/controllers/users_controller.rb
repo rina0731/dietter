@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!,except: [:complete]
+
   def top
   end
 
@@ -17,6 +19,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(current_user.id)
+    @user.destroy
+    redirect_to users_complete_path
   end
 
   def delete
@@ -24,10 +29,17 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    @weight = @user.weights.build(latest_weight: @user.weight)
-    @weight.save
-    redirect_to users_top_path
+    if @user.update(user_params)
+    weight_change = @user.weights.build(weight_change: @user.latest_weight)
+    weight_change.save
+    redirect_to users_top_path,notice: "編集が完了しました"
+    else
+    #updateを失敗すると編集ページ
+    flash.now[:error] = '更新できませんでした'
+      render :edit
+    end
+    #weight_change = @user.weights.build(weight_change: @user.latest_weight)
+    #if weight_change.update()
   end
 
   def edit_complete
@@ -38,6 +50,6 @@ class UsersController < ApplicationController
 
    private
   def user_params
-    params.require(:user).permit(:name, :gender, :height, :weight, :ideal_weight, :age, :email, :password )
+    params.require(:user).permit(:name, :gender, :height, :latest_weight, :ideal_weight, :age, :email)
   end
 end

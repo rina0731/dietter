@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_071219) do
+ActiveRecord::Schema.define(version: 2019_05_19_061415) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer "contact_id"
@@ -35,9 +35,8 @@ ActiveRecord::Schema.define(version: 2019_05_16_071219) do
     t.string "name"
     t.integer "gender"
     t.float "height"
-    t.float "weight"
+    t.float "latest_weight"
     t.float "ideal_weight"
-    t.float "body_fat"
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_05_16_071219) do
   end
 
   create_table "weights", force: :cascade do |t|
-    t.float "latest_weight"
+    t.float "weight_change"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

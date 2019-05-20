@@ -1,17 +1,20 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!
 
 	def new
 	  @contact = Contact.new
     end
 
     def create
-      contact = Contact.new(contact_params)
-  	  contact.user_id = current_user.id
-  	  contact.save
-      redirect_to users_top_path
+      @contact = Contact.new(contact_params)
+  	  @contact.user_id = current_user.id
+  	  if @contact.save
+      redirect_to users_top_path,notice: "送信しました"
       else
-          render :new
+        flash.now[:alert] = "エラー：送信できませんでした"
+        render :new
       end
+    end
 
     def update
     end
