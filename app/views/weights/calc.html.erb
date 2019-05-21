@@ -31,7 +31,7 @@
     <input type="text" id="resultForm"><span>cal 程度で<br>
     実現可能</span>
 
-    <p>※過度な増量・減量は健康を害する恐れがあるので表示できません。</p>
+
 
 </body>
 
@@ -64,11 +64,13 @@ button.addEventListener("click", function(e) {
     // 小数点以下を切り捨て
     resultForm.value = Math.floor(resultForm.value);
 
-    //if (resultForm <= 800){
-    //document.write(“過度な増量・減量なため表示できません！期間や目標体重を変更してください”);
-　　　//}
-});
+    var borderValue = 800;
 
+    if (idealcalory < borderValue) {
+        alert("注意：過度な増量・減量は健康を害する恐れがあるので表示できません。");
+        resultForm.value = "";
+    }
+});
 
 </script>
 
