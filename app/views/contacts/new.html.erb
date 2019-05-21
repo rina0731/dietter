@@ -1,17 +1,31 @@
 <div class="contact-top">
-	<div class="contact-form">
+  <div class="contact-form">
 
-		<h1 class="contact">お問い合わせフォーム</h1>
-            <%= flash[:alert] %>
+    <h1 class="contact">お問い合わせフォーム</h1>
+      <%= flash[:alert] %>
 
-		<%= form_for (@contact) do |f| %>
+<% if @contact.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+	  <%= form_for (@contact) do |f| %>
 
-		    <h4>タイトル</h4>
-			<%= f.text_field :contact_title %>
-			<h4>内容</h4>
-			<%= f.text_area :contact_text %>
-            <h4><%= f.submit '送信' %></h4>
+		<h4>タイトル</h4>
+		  <%= f.text_field :contact_title %>(30文字以内)
 
-        <% end %>
-	</div>
+        <div class="field">
+          <%= f.label :返信用メールアドレス %><br />
+          <%= f.email_field :reply, autofocus: true, autocomplete: "email" %>
+        </div>
+
+	    <h4>内容</h4>
+		  <%= f.text_area :contact_text %>(500文字以内)
+        <h4><%= f.submit '送信' %></h4>
+      <% end %>
+  </div>
 </div>

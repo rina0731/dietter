@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_user, only: [:index, :show]
 
 	def new
 	  @contact = Contact.new
@@ -21,10 +22,12 @@ class ContactsController < ApplicationController
 
     def index
       @contacts = Contact.all
+      @user_id = current_user.id
     end
 
     def show
       @contact = Contact.find(params[:id])
+      @user_id = current_user.id
     end
 
     def ensure_correct_user
@@ -36,7 +39,11 @@ class ContactsController < ApplicationController
 
     private
     def contact_params
-  	  params.require(:contact).permit(:contact_title, :contact_text)
+  	  params.require(:contact).permit(:contact_title, :contact_text,:reply)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end
 

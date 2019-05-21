@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, password_length: 6..10
 
   validates :name, presence: true
-  #validates :password, confirmation: true,presence: true
-
+  validates :height, presence: true, numericality: true
+  validates :latest_weight, presence: true, numericality: true
+  validates :ideal_weight, numericality: true
   has_many :contacts
 
   has_many :weights, dependent: :destroy

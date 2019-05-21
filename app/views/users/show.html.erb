@@ -26,7 +26,5 @@
 		</li>
     </ul>
 
-    <% if current_user.admin? && !(current_user == user) %>
     <%= link_to "削除", users_index_path, class: "btn btn-danger user_#{@user.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-  <% end %>
 </div>
