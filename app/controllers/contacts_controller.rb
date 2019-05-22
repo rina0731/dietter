@@ -21,8 +21,9 @@ class ContactsController < ApplicationController
     end
 
     def index
-      @contacts = Contact.all
+      @contacts = Contact.all.order(created_at: :desc)
       @user_id = current_user.id
+      @contacts = Contact.page(params[:page]).per(3)
     end
 
     def show

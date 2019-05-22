@@ -13,9 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+/*共通部分*/
 body,
 #wrapper {
   display: flex;
@@ -23,33 +25,14 @@ body,
   min-height: 100vh;
 }
 
-
-.main-visual {
-  width: 100%;
-  height: 850px;
-  background-image: url(top6.jpg);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: auto;
-}
-
 footer {
   margin-top: auto;
   text-align: center;
 }
 
-h1 {
-  font-family: "Moon", "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic Pro"
-}
-
-ul {
-  list-style: none;
-}
-
-li#header-list {
-  text-align: right;
-  font-size: 25px;
-  margin: 2%;
+p.fotter-text {
+  text-align: center;
+  margin: 50px;
 }
 
 .flexbox {
@@ -67,6 +50,34 @@ li#header-list {
     border: solid 3px #29b6f6;
 }
 
+/*トップページ*/
+.main-visual {
+  width: 100%;
+  height: 820px;
+  background-image: url(top7.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h2.pale {
+   color: rgba(0,100,255,0.2);
+}
+
+h1 {
+  font-family: "Moon", "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic Pro"
+}
+
+ul {
+  list-style: none;
+}
+
+li#header-list {
+  text-align: right;
+  font-size: 25px;
+  margin: 2%;
+}
+
 .main-visual-text {
   color: #fff;
   text-align: center;
@@ -77,16 +88,17 @@ li#header-list {
   text-align: center;
 }
 
-.box {
-  margin: 20px;
-  margin-bottom: 30px;
+.container{
+  margin: auto;
+}
+
+.function {
+  margin: 50px;
+  padding: 20px;
   font-size: 40px;
+  text-align: center;
 }
 
-
-.space {
-  height: 150px;
-}
 /*以下マイページ:*/
 /*div要素全体にリンクをつけるために必要な要素*/
 
@@ -146,7 +158,12 @@ h4.pale {
  -o-transform: rotate(20deg);
  text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf; /* 右下の花の縁取りの色 */
 }
+
 .linkbox a:hover{/* マウスオーバー時に色変更*/
     opacity: 0.1;
     background-color: #000000;
+}
+
+.space {
+  height: 150px;
 }

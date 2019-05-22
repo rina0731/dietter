@@ -1,81 +1,59 @@
 <body>
-	<div class="main-visual">
-  <header>
+  <div class="main-visual">
+    <header>
+      <ul>
+		<li id="header-list"><i class="fas fa-user-plus"></i>
+		  <%= link_to "SIGN IN", new_user_registration_path %>
+		</li>
+		<li id="header-list"><i class="fas fa-sign-in-alt"></i>
+		  <%= link_to "LOG IN", new_user_session_path %>
+		</li>
+	  </ul>
 
-		<ul>
-		  <li id="header-list"><i class="fas fa-user-plus"></i>
-			<%= link_to "SIGN IN", new_user_registration_path %>
-		  </li>
-		  <li id="header-list"><i class="fas fa-sign-in-alt"></i>
-			<%= link_to "LOG IN", new_user_session_path %>
-		  </li>
-		</ul>
-
-		<h2 class="main-visual-text">
+	  <h2 class="main-visual-text">
 		  Became a best shape.
-		</h2>
-</header>
-	</div>
+	  </h2>
+    </header>
+  </div>
 
-	  <div class="about">
-	    <h2 class="module-title ">
-		HOW TO USE</h2>
+  <div class="about">
+	<h2 class="pale">
+	  HOW TO USE</h2>
 		<h3>健康的にあなたの体重管理をサポートします。<br>
 			カロリーと体重の増減に注目し、<br>
-		自動計算する機能などがあります。</h3>
+		    自動計算する機能などがあります。</h3>
+  </div>
+
+  <div class="container">
+    <div class= "function">
+      <div class=" fas fa-calculator">
+	    <h3 class="feature-title">PREDICT YOUR WEIGHT</h3>
+	    <h4>1日の摂取カロリーを入力すると、あなたの体型や消費エネルギー<br>
+	    	などから計算される１日あたりの体重の増減が表示されます。</h4>
+      </div>
+    </div>
+
+    <div class= "function">
+      <div class="box fas fa-tachometer-alt">
+	    <h3 class="feature-title">CALCULATE CALORY</h3>
+		<h4>目標体重とダイエットの期間を入力すると、独自の計算により<br>
+		    その体重になりための1日の摂取カロリーの目安が表示されます。</h4>
+      </div>
+    </div>
+
+    <div class= "function">
+	  <div class="box fas fa-weight">
+	    <h3 class="feature-title">WEIGHT CHART</h3>
+		<h4>これまでの体重の変化をグラフで表示します。</h4>
 	  </div>
+	</div>
 
-	  <div class="features container">
-		<div class="row">
-		  <div class="col-lg-1">
-		  </div>
+    <div class= "function">
+      <div class="box fas fa-atom">
+	    <h3 class="feature-title">REDUCE CALORY</h3>
+		<h4>体重の減量だけでなく、増量の目安にお使いいただくこともできます。</h4>
+	  </div>
+	</div>
 
-		  <div class="col-lg-4">
-		  <div class="box fas fa-calculator">
-			<h3 class="feature-title">PREDICT YOUR WEIGHT</h3>
-			<h4>1日の摂取カロリーを入力すると、<br>あなたの体型や消費エネルギーなどから計算される体重の増減を予測します。</h4>
-		  </div>
-		  </div>
-
-		  <div class="col-lg-1">
-		  </div>
-
-		  <div class="col-lg-4">
-		  <div class="box fas fa-tachometer-alt">
-			<h3 class="feature-title">CALCULATE CALORY</h3>
-			<h4>目標体重と期間を入力すると、<br>
-				それを実現するための1日の摂取<br>
-			    カロリーが表示されます。</h4>
-		  </div>
-		  </div>
-
-		  <div class="col-lg-1">
-		  </div>
-		</div>
-
-		<div class="row">
-		    <div class="col-lg-1">
-		    </div>
-
-			<div class="col-lg-4">
-			<div class="box fas fa-weight">
-			  <h3 class="feature-title">WEIGHT CHART</h3>
-			  <h4>これまでの体重の変化をグラフで表示します。</h4>
-			</div>
-			</div>
-
-            <div class="col-lg-1">
-		    </div>
-
-		    <div class="col-lg-4">
-			<div class="box fas fa-atom">
-				<h3 class="feature-title">REDUCE CALORY</h3>
-				<h4>運動などによって消費される<br>
-					カロリーが一覧で表示されています。
-				食事制限だけでなく、運動も併用して<br>
-				健康的に体重を管理しましょう。</h4>
-			  </div>
-			</div>
-			</div>
-		</div>
-	</body>
+  </div>
+</body>

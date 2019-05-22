@@ -5,5 +5,5 @@ class Contact < ApplicationRecord
 	validates :contact_text, presence: true, length: { in: 2..500}
 
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :reply, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+    validates :reply, presence: true, format: { with: VALID_EMAIL_REGEX }
 end

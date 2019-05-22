@@ -15,8 +15,8 @@
 
           <%= yield %>
 
-        <footer>
           <% if user_signed_in? %>
+          <footer>
             <div class="flexbox">
               <div class="flexbox-item fas fa-home">
                 <%= link_to 'ホーム', destroy_user_session_path, method: :delete %>

@@ -8,4 +8,7 @@
 	    <h4><%= link_to "詳細", contact_path(contact.id) %></h4>
 	</div>
 	 <% end %>
+	 <div class="contact-paginate">
+  <%= paginate @contacts %>
+</div>
 </div>

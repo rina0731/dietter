@@ -75,3 +75,4 @@ gem 'ransack'
 gem 'lazy_high_charts'
 gem 'rubocop', require: false
 gem 'rails-i18n'
+gem 'kaminari'
