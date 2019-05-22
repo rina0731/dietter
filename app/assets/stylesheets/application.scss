@@ -16,15 +16,17 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body,
 #wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 120vh;
+  min-height: 100vh;
 }
+
 
 .main-visual {
   width: 100%;
-  height: 950px;
+  height: 850px;
   background-image: url(top6.jpg);
   background-position: top;
   background-repeat: no-repeat;
@@ -32,9 +34,12 @@
 }
 
 footer {
-  margin-top: 10%;
+  margin-top: auto;
   text-align: center;
+}
 
+h1 {
+  font-family: "Moon", "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic Pro"
 }
 
 ul {
@@ -78,3 +83,70 @@ li#header-list {
   font-size: 40px;
 }
 
+
+.space {
+  height: 150px;
+}
+/*以下マイページ:*/
+/*div要素全体にリンクをつけるために必要な要素*/
+
+h4.pale {
+   color: rgba(0,100,255,0.2);
+}
+
+.linkbox {
+    position: relative;
+    height: 350px;
+    width: 30%;
+    padding: 25px;
+    margin: 15px;
+    border: 2px dotted #EAA8BF;
+}
+
+.linkbox a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+/* 以下見た目をわかりやすくするための設定*/
+.linkbox {
+
+    border: 2px dotted #EAA8BF;
+}
+
+.linkbox:before {
+ content: '＊';
+ color: #fff; /* 左上の花の色 */
+ font-size: 50px; /* 左上の花のサイズ */
+ font-weight: bold;
+ position: absolute;
+ top: -38px;
+ left: -25px;
+ transform: rotate(20deg);
+ -moz-transform: rotate(20deg);
+ -webkit-transform: rotate(20deg);
+ -o-transform: rotate(20deg);
+ text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf; /* 左上の花の縁取りの色 */
+}
+
+.linkbox:after {
+ content: '*';
+ color: #fff; /* 右下の花の色 */
+ font-size: 80px; /* 右下の花のサイズ */
+ font-weight: bold;
+ position: absolute;
+ bottom: -45px;
+ right: -15px;
+ transform: rotate(20deg);
+ -moz-transform: rotate(20deg);
+ -webkit-transform: rotate(20deg);
+ -o-transform: rotate(20deg);
+ text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf; /* 右下の花の縁取りの色 */
+}
+.linkbox a:hover{/* マウスオーバー時に色変更*/
+    opacity: 0.1;
+    background-color: #000000;
+}

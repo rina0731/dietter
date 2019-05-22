@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dietter</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <html>
+    <head>
+      <title>Dietter</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-<body>
-  <div id="wrapper">
-    <header>
-  </header>
+    <body>
+      <div id="wrapper">
 
-  <%= yield %>
+          <%= yield %>
 
-  <footer>
-  <% if user_signed_in? %>
-    <div class="flexbox">
-      <div class="flexbox-item fas fa-home">
-        <%= link_to 'ホーム', destroy_user_session_path, method: :delete %>
+        <footer>
+          <% if user_signed_in? %>
+            <div class="flexbox">
+              <div class="flexbox-item fas fa-home">
+                <%= link_to 'ホーム', destroy_user_session_path, method: :delete %>
+              </div>
+              <div class="flexbox-item fas fa-smile">
+                <%= link_to 'マイページ', users_top_path %>
+              </div>
+              <div class="flexbox-item fas fa-user-edit">
+                <%= link_to 'プロフィール編集', edit_user_path(current_user.id) %>
+              </div>
+              <div class="flexbox-item fas fa-user-edit">
+                <%= link_to 'お問い合わせ', new_contact_path %>
+              </div>
+              <div class="flexbox-item fas fa-sign-out-alt">
+               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </div>
+            </div>
+          <% else %>
+            <p class="fotter-text">CopyRight 2019 dietter All right reserved.</p>
+          <% end %>
+        </footer>
       </div>
-      <div class="flexbox-item fas fa-smile">
-        <%= link_to 'マイページ', users_top_path %>
-      </div>
-      <div class="flexbox-item fas fa-user-edit">
-        <%= link_to 'プロフィール編集', edit_user_path(current_user.id) %>
-      </div>
-      <div class="flexbox-item fas fa-user-edit">
-      <%= link_to 'お問い合わせ', new_contact_path %>
-      </div>
-      <div class="flexbox-item fas fa-sign-out-alt">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </div>
-    </div>
-      <% else %>
-    <p class="fotter-text">CopyRight 2019 dietter All right reserved.</p>
-      <% end %>
-    </footer>
-  </div>
-</body>
-</html>
+    </body>
+  </html>

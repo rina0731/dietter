@@ -1,5 +1,4 @@
-<h1>カロリー計算</h1>
-
+<h1>目標実現のためのカロリー目安</h1>
 <% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
 <%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
 
@@ -27,9 +26,8 @@
         <button id="button">計算</button>
     </form>
 
-    <label for="resultForm">1日の摂取カロリーが</label>
-    <input type="text" id="resultForm"><span>cal 程度で<br>
-    実現可能</span>
+    <label for="resultForm"><h3>1日の摂取カロリーが</h3></label>
+    <input type="text" id="resultForm"><span><h3>cal 程度で実現可能</h3></span>
 
 
 

@@ -29,7 +29,7 @@ class WeightsController < ApplicationController
       #ideal_weights = User.where(:user_id =>@user.id).pluck(:ideal_weight)
 
       @graph = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: 'これまでの変化')
+      f.title(text: '')
       #f.title(:text => @user.weight)
       f.xAxis(:categories => @categories2)
       f.yAxis(:title => {:text => "kg"})
