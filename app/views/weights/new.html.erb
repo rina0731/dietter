@@ -1,13 +1,17 @@
+<div class="upper">
 <h1>体重予測</h1>
+</div>
+  <div class="display">
+    <h4>
+        <% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
+    <%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
+</h4>
 
-<% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
-<%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
+    <h2><%= @user.latest_weight %> kg</h2>
 
-<h2>
-<%= @user.latest_weight %> kg</h2>
-
-<h2> BMI
-<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+    <h2> BMI
+      <%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+  </div>
 
 <h3>１日の摂取カロリーを入力してください </h3>
 
@@ -45,12 +49,14 @@ button.addEventListener("click", function(e) {
 
     <form>
         <label for="textForm">合計</label>
-        <input type="text" id="textForm">
+        <input type="text" id="textForm"><span>cal</span><br>
         <button id="button">計算</button>
-    </form>
+    </form><br><br>
 
+    <form>
     <label for="resultForm">予想体重</label>
-    <input type="text" id="resultForm">
+    <input type="text" id="resultForm"><span>kg</span>
+    </form>
 
 
 <script>
@@ -86,5 +92,7 @@ button.addEventListener("click", function(e) {
 });
 
 </script>
+<h5 class="notice">
+注意）結果には個人差があります。こちらの数値は計算上で得られる結果であり、実際の体重変化とは差があります。目安としてお使いください。</h5>
 </body>
 </html>

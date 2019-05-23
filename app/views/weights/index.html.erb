@@ -1,14 +1,18 @@
+<div class="upper">
 <h1>体重変化：グラフ</h1>
-<main>
-<% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
-<%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
+</div>
+  <div class="display">
+    <h4>
+    <% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
+    <%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
+  </h4>
 
-<h2>
-<%= @user.latest_weight %> kg</h2>
+    <h2>
+      <%= @user.latest_weight %> kg</h2>
 
-<h2> BMI
-<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
-
-
-<%= high_chart("sample", @graph) %>
-</main>
+    <h2> BMI
+    <%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+  </div>
+  <main>
+    <%= high_chart("sample", @graph) %>
+  </main>

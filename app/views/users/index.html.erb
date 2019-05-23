@@ -1,17 +1,17 @@
 <h1>管理者側のユーザー一覧ページ</h1>
 
-<%= search_form_for @search do |f| %>
-  <div class="form-group">
-    <%= f.label :name_cont, "Name" %>
-    <%= f.text_field :name_cont %>
-  </div>
-  <div class="actions"><%= f.submit "検索" %></div>
-<% end %>
+  <%= search_form_for @search do |f| %>
+    <div>
+      <%= f.label :name_cont, "Name" %>
+      <%= f.text_field :name_cont %>
+    </div>
+    <div class="actions"><%= f.submit "検索" %></div>
+  <% end %>
 
   <% @users.each do |user| %>
-	<%= user.name %>
-	<%= button_to "詳細", user_path(user.id), method: :get, class: 'btn btn-default' %>
+	  <%= user.name %>
+	  <%= button_to "詳細", user_path(user.id), method: :get, class: 'btn btn-default' %>
   <% end %>
+
   <div class="user-paginate">
-  <%= paginate @users %>
-</div>
+  </div>

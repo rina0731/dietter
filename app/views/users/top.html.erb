@@ -33,9 +33,11 @@
       <p><br><br>これまでの体重の変化をグラフで表示します。</p>
     </div>
   </div>
+</main>
 
   <% if current_user.admin == true %>
+  <!-- <div class="admin"> -->
     <%= link_to "ユーザー一覧", users_path  %>
     <%= link_to "問い合わせ一覧", contacts_path  %>
+  <!-- </div> -->
   <% end %>
-</main>

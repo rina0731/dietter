@@ -1,12 +1,18 @@
+<div class="upper">
 <h1>目標実現のためのカロリー目安</h1>
-<% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
-<%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
+</div>
+  <div class="display">
+    <h4>
+        <% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
+    <%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
 
-<h2>
-<%= @user.latest_weight %> kg</h2>
+    </h4>
+    <h2>
+      <%= @user.latest_weight %> kg</h2>
 
-<h2> BMI
-<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+    <h2> BMI
+      <%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+  </div>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -18,7 +24,7 @@
 <body>
     <form>
         <label for="textForm1">目標体重 </label>
-        <input type="text" id="ideal_weight"><span>kg</span><br>
+        <input type="text" id="ideal_weight"><span>kg</span><br><br><br>
 
         <label for="textForm2">期間 </label>
         <input type="text" id="term"><span>日</span><br>
@@ -26,8 +32,10 @@
         <button id="button">計算</button>
     </form>
 
+    <form>
     <label for="resultForm"><h3>1日の摂取カロリーが</h3></label>
-    <input type="text" id="resultForm"><span><h3>cal 程度で実現可能</h3></span>
+    <input type="text" id="resultForm"><span>cal</span><h3> 程度で実現可能</h3>
+    </form>
 
 
 
@@ -71,5 +79,6 @@ button.addEventListener("click", function(e) {
 });
 
 </script>
-
+<h5 class="notice">
+注意）結果には個人差があります。こちらの数値は計算上で得られる結果であり、実際の体重変化とは差があります。目安としてお使いください。</h5>
 </html>
