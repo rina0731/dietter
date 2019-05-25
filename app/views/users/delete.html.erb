@@ -1,20 +1,20 @@
 <div class="bigbox">
-<h1>アカウント削除</h1>
-<ul>
-<li> 複数の機能が使用できなくなります。</li>
-<li> 保存されている全てのデータが削除されます。</li>
-<li> 再登録しても以前のデータは引き継ぎができません。</li>
+  <h1>アカウント削除</h1>
+    <ul>
+      <li> 複数の機能が使用できなくなります。</li>
+      <li> 保存されている全てのデータが削除されます。</li>
+      <li> 再登録しても以前のデータは引き継ぎができません。</li>
     </ul>
     <br>
 
     <p class="text">よろしいですか？</p>
-    <br>
+      <br>
     <div class="line">
-    <%= link_to 'やっぱり削除しない', users_top_path,class: "btn btn-default btn-lg" %>
+      <%= link_to 'やっぱり削除しない', users_top_path,class: "btn btn-default btn-lg" %>
     </div>
 
-<hr>
+      <hr>
     <div class="line">
-    <%= link_to 'アカウント削除・退会', users_complete_path, method: :delete, class: "btn btn-default btn-lg" %>
+      <%= link_to 'アカウント削除・退会', users_complete_path, method: :delete, class: "btn btn-default btn-lg" %>
     </div>
 </div>

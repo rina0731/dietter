@@ -2,15 +2,15 @@
   <h1>お問い合わせフォーム</h1>
     <%= flash[:alert] %>
 
-  <% if @contact.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <ul>
-        <% @contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <% if @contact.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger">
+          <ul>
+            <% @contact.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+      <% end %>
+          </ul>
+        </div>
+    <% end %>
 
 	  <%= form_for (@contact) do |f| %>
       <div class="field-contact">

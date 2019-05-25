@@ -2,17 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!,except: [:complete]
   before_action :admin_user, only: [:index, :show]
 
-
-  def top
-  end
-
   def index
-    # @users = User.all.order(created_at: :desc)
     @users = User.all
     @search = User.search(params[:q])
     @users = @search.result
     @user_id = current_user.id
-    # @users = User.page(params[:page]).per(10)
   end
 
   def show
@@ -30,9 +24,6 @@ class UsersController < ApplicationController
     redirect_to users_complete_path
   end
 
-  def delete
-  end
-
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -40,16 +31,9 @@ class UsersController < ApplicationController
       weight_change.save
       redirect_to users_top_path,notice: "編集が完了しました"
     else
-      #updateを失敗すると編集ページ
+      #updateを失敗すると編集ページに戻る
       flash.now[:error] = '更新できませんでした'
       render :edit
-    end
-      #weight_change = @user.weights.build(weight_change: @user.latest_weight)
-      #if weight_change.update()
-  end
-
-
-  def complete
   end
 
    private
@@ -60,4 +44,5 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+  end
 end

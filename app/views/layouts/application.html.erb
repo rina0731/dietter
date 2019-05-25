@@ -15,10 +15,10 @@
     <body>
       <div id="wrapper">
 
-          <%= yield %>
+        <%= yield %>
 
-          <% if user_signed_in? %>
-          <footer>
+        <% if user_signed_in? %>
+      <footer>
 
             <div class="flexbox">
 
@@ -44,10 +44,10 @@
               </div>
 
             </div>
-          <% else %>
-            <p class="fotter-text">CopyRight 2019 dietter All right reserved.</p>
-          <% end %>
-        </footer>
+        <% else %>
+          <p class="fotter-text">CopyRight 2019 dietter All right reserved.</p>
+        <% end %>
+      </footer>
       </div>
     </body>
   </html>

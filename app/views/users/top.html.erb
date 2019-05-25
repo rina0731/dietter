@@ -4,40 +4,38 @@
     <p><%= flash[:notice] %></p>
   <% end %>
 
-<main>
-	<div class="space">
-	</div>
-  <div class="flexbox">
+  <main>
+	  <div class="space">
+	  </div>
+    <div class="flexbox">
 
-    <div class="linkbox">
-      <a href="/weights/predict"></a>
-      <h2>体重予測</h2><br>
-      <h4 class="pale">PREDICT YOUR WEIGHT</h4>
-      <p><br><br>1日の摂取カロリーを入力すると、
-      あなたの体型や消費エネルギーなどから計算される体重の増減を予測します。</p>
-    </div>
+      <div class="linkbox">
+        <a href="/weights/predict"></a>
+        <h2>体重予測</h2><br>
+        <h4 class="pale">PREDICT YOUR WEIGHT</h4>
+        <p><br><br>1日の摂取カロリーを入力すると、
+          あなたの体型や消費エネルギーなどから計算される体重の増減を予測します。</p>
+      </div>
 
-    <div class="linkbox">
-      <a href="/weights/calc"></a>
-      <h2>カロリー目安計算</h2><br>
-      <h4 class="pale">CALCULATE CALORY</h4>
-      <p><br><br>目標体重と期間を入力すると、
-      それを実現するための1日の摂取
-      カロリーが表示されます。</p>
-    </div>
+      <div class="linkbox">
+        <a href="/weights/calc"></a>
+        <h2>カロリー目安計算</h2><br>
+        <h4 class="pale">CALCULATE CALORY</h4>
+        <p><br><br>目標体重と期間を入力すると、
+          それを実現するための1日の摂取
+          カロリーが表示されます。</p>
+      </div>
 
-    <div class="linkbox">
-      <a href="/weights"></a>
-      <h2>体重管理</h2><br>
-      <h4 class="pale">WEIGHT CHART</h4>
-      <p><br><br>これまでの体重の変化をグラフで表示します。</p>
+      <div class="linkbox">
+        <a href="/weights"></a>
+        <h2>体重管理</h2><br>
+        <h4 class="pale">WEIGHT CHART</h4>
+        <p><br><br>これまでの体重の変化をグラフで表示します。</p>
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 
   <% if current_user.admin == true %>
-  <!-- <div class="admin"> -->
     <%= link_to "ユーザー一覧", users_path  %>
     <%= link_to "問い合わせ一覧", contacts_path  %>
-  <!-- </div> -->
   <% end %>

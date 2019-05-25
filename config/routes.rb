@@ -11,13 +11,12 @@ Rails.application.routes.draw do
 
   get '/dietter' => 'home#top'
   root 'home#top'
+
   resources :users, :except => [:new, :create]
   resources :contacts, only: [:new, :create, :update, :index, :show]
-
-resources :weights, only: [:index]
+  resources :weights, only: [:index]
   get '/weights/predict' => 'weights#new'
   post '/weights/predict' => 'weights#new'
-
   get '/weights/calc' => 'weights#calc'
   post '/weights/calc' => 'weights#calc'
 
