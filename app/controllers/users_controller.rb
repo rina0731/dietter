@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @search = User.search(params[:q])
-    @users = @search.result
+    @users = @search.result.page(params[:page]).per(10)
     @user_id = current_user.id
   end
 
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
       #updateを失敗すると編集ページに戻る
       flash.now[:error] = '更新できませんでした'
       render :edit
+    end
   end
 
    private
@@ -44,5 +45,4 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
-  end
 end

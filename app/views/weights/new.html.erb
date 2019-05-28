@@ -9,7 +9,7 @@
 
     <h2><%= @user.latest_weight %> kg</h2>
 
-    <h2> BMI<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+    <h2> BMI<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).round(2) %></h2>
   </div>
 
   <h3>１日の摂取カロリーを入力してください </h3>
@@ -92,8 +92,9 @@
 
   </script>
 
-  <h5 class="notice">
-    注意）結果には個人差があります。こちらの数値は計算上で得られる結果であり、
-    実際の体重変化とは差があります。目安としてお使いください。</h5>
+    <div class="alert alert-danger" role="alert">
+      <strong>注意！
+      </strong> - 結果には個人差があります。こちらの数値は計算上で得られる結果であり、実際の体重変化とは差があります。体重管理の目安としてお使いください。
+    </div>
   </body>
 </html>

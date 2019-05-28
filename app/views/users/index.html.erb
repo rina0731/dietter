@@ -13,5 +13,6 @@
 	  <%= button_to "詳細", user_path(user.id), method: :get, class: 'btn btn-default' %>
   <% end %>
 
-  <div class="user-paginate">
-  </div>
+  <div class="paginate">
+     <%= paginate @users %>
+  </div>4

@@ -7,7 +7,7 @@
       <%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %></h4>
     <h2><%= @user.latest_weight %> kg</h2>
 
-    <h2> BMI<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).floor(2) %></h2>
+    <h2> BMI<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).round(2) %></h2>
   </div>
 
 <!DOCTYPE html>
@@ -32,7 +32,6 @@
         <label for="resultForm"><h3>1日の摂取カロリーが</h3></label>
         <input type="text" id="resultForm"><span>cal</span><h3> 程度で実現可能</h3>
       </form>
-    </body>
 
     <script>
 
@@ -72,7 +71,10 @@
 　　　　});
 
 　　　</script>
-　　　　　<h5 class="notice">
-　　　　　注意）結果には個人差があります。こちらの数値は計算上で得られる結果であり、
-　　　　　実際の体重変化とは差があります。目安としてお使いください。</h5>
+
+      <div class="alert alert-danger" role="alert">
+        <strong>注意！
+        </strong> - 結果には個人差があります。こちらの数値は計算上で得られる結果であり、実際の体重変化とは差があります。体重管理の目安としてお使いください。
+      </div>
+    </body>
 　　</html>
