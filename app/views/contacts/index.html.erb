@@ -1,12 +1,12 @@
 <h1>問い合わせ一覧</h1>
-
-  <% @contacts.each do |contact| %>
-    <div class="contact-box">
-	    <h3>タイトル : <%= contact.contact_title %></h3>
-	    <h4>内容 : <%= contact.contact_text %></h4>
-      <h4><%= link_to "詳細", contact_path(contact.id) %></h4>
-    </div>
-	<% end %>
+  <br>
+    <% @contacts.each do |contact| %>
+      <div class="contacts-box">
+	      <h3>タイトル : <%= contact.contact_title %></h3>
+	      <p>内容 : <%= contact.contact_text %>&nbsp;&nbsp;<%= link_to "詳細", contact_path(contact.id) %></p>
+        <br>
+      </div>
+	  <% end %>
     <div class="paginate">
       <%= paginate @contacts %>
     </div>

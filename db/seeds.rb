@@ -6,7 +6,47 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.new(:name => '管理者', :gender => '1', :height => '160.0',
- :latest_weight => '50.0', :ideal_weight => '47.0', :age =>'2', :email => 'admin1@com',
-  :password => '111111', :password_confirmation => '111111', admin: true)
-user.save!
+Weight.create!(
+   weight_change: '50.0',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '49.0',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '49.5.0',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '48.5',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '47.5',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '46.5',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '47.0',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '48.5',
+   user_id:  '53'
+)
+
+Weight.create!(
+   weight_change: '45.0',
+   user_id:  '53'
+)

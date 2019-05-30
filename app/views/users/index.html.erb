@@ -6,13 +6,19 @@
       <%= f.text_field :name_cont %>
     </div>
     <div class="actions"><%= f.submit "検索" %></div>
+    <br>
+    <br>
   <% end %>
 
   <% @users.each do |user| %>
-	  <%= user.name %>
-	  <%= button_to "詳細", user_path(user.id), method: :get, class: 'btn btn-default' %>
+    <div class="users-box">
+	    <h3>名前：<%= user.name %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "詳細", user_path(user.id) %>
+      </h3>
+      <br>
+      <br>
+    </div>
   <% end %>
 
   <div class="paginate">
      <%= paginate @users %>
-  </div>4
+  </div>
