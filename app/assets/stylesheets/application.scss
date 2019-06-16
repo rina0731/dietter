@@ -17,7 +17,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
 /*共通部分：ヘッダー・フッター*/
 #wrapper {
   display: flex;
@@ -294,6 +293,7 @@ h4.devise {
 .bigbox {
   margin: auto;
   text-align: center;
+  margin: px;
 }
 
 .enter {
@@ -337,6 +337,15 @@ h2.attention {
 .field-contact {
   margin: 40px;
 }
+
+.complete {
+  font-family: "Moon";
+  font-weight: bold;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  margin: 100px;
+}
+
 /*管理者側のページ*/
 .paginate {
   margin: auto;
