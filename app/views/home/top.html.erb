@@ -1,62 +1,108 @@
-<body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<body class="home">
 
-  <div class="main-visual">
+  <div class="visual">
     <header>
-    	<h1 class=logo> dietter</h1>
+      <h1 class=big> dietter</h1>
       <ul>
-		<li id="header-list"><i class="fas fa-user-plus"></i>
+		<li class="header">
 		  <%= link_to "SIGN IN", new_user_registration_path %>
 		</li>
-		<li id="header-list"><i class="fas fa-sign-in-alt"></i>
+		<li class="header">
 		  <%= link_to "LOG IN", new_user_session_path %>
 		</li>
 	  </ul>
-	  <h2 class="main-visual-text">
+    </header>
+    <div>
+	  <h2 class="visual-text">
 		  Became a best shape?
 	  </h2><br>
-	  <div>
-	  	<%= link_to "YES", users_top_path,class: "start" %>
-	  </div>
-    </header>
+	</div>
+	<div>
+	  <%= link_to "YES", users_top_path,class: "start" %>
+	</div>
   </div>
 
   <div class="about">
-	<h2 class="pale">HOW TO USE</h2>
-		<h3>健康的にあなたの体重管理をサポートします。<br>
+	<h2 class="subject">-- HOW TO USE --</h2>
+	  <p class="second">健康的にあなたの体重管理をサポートします。<br>
 			カロリーと体重の増減に注目し、<br>
-		    自動計算する機能などがあります。</h3>
+		    自動計算する機能などがあります。</p>
   </div>
 
   <div class="container">
     <div class= "function">
       <div class=" fas fa-calculator">
-	    <h3 class="feature-title">PREDICT YOUR WEIGHT</h3>
-	    <h4>1日の摂取カロリーを入力すると、あなたの体型や消費エネルギー<br>
-	    などから計算される１日あたりの体重の増減が表示されます。</h4>
+	    <h3 class="feature">PREDICT YOUR WEIGHT</h3>
+	    <h4>1日の摂取カロリーを入力すると、<br>
+	    	あなたの体型や消費エネルギー<br>
+	    などから計算される１日あたりの<br>
+	体重の増減が表示されます。</h4>
       </div>
     </div>
 
     <div class= "function">
       <div class="box fas fa-tachometer-alt">
-	    <h3 class="feature-title">CALCULATE CALORY</h3>
-		<h4>目標体重とダイエットの期間を入力すると、独自の計算により<br>
-		その体重になりための1日の摂取カロリーの目安が表示されます。</h4>
+	    <h3 class="feature">CALCULATE CALORY</h3>
+		<h4>目標体重とダイエットの期間を<br>
+			入力すると、独自の計算により<br>
+		    その体重になりための1日の<br>
+	        摂取カロリーの目安が表示されます。</h4>
       </div>
     </div>
 
     <div class= "function">
 	  <div class="box fas fa-weight">
-	    <h3 class="feature-title">WEIGHT CHART</h3>
-		<h4>これまでの体重の変化をグラフで表示します。</h4>
+	    <h3 class="feature">WEIGHT CHART</h3>
+		<h4>これまでの体重の変化を<br>
+		グラフで表示します。</h4>
 	  </div>
 	</div>
 
     <div class= "function">
       <div class="box fas fa-atom">
-	    <h3 class="feature-title">REDUCE CALORY</h3>
-		<h4>体重の減量だけでなく、増量の目安にお使いいただくこともできます。</h4>
+	    <h3 class="feature">GAIN AND REDUCE WEIGHT</h3>
+		<h4>体重の減量だけでなく、増量の<br>
+		目安にお使いいただくこともできます。</h4>
 	  </div>
 	</div>
+  </div>
 
+<div class="frame">
+
+  <div class="card">
+    <img src="/images/top4.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>PREDICT YOUR WEIGHT</b></h4>
+        <p>1日の摂取カロリーを入力すると<br>
+	    	あなたの体型や消費エネルギー<br>
+	    などから計算される１日あたりの<br>
+	    体重の増減が表示されます。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="/images/top6.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>CALCULATE CALORY</b></h4>
+          <p>目標体重とダイエットの期間を<br>
+			入力すると、独自の計算により<br>
+		    その体重になりための1日の<br>
+	        摂取カロリーの目安が表示されます。</p>
+      </div>
+   </div>
+
+   <div class="card">
+    <img src="/images/top7.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>WEIGHT CHART</b></h4>
+          <p>これまでの体重の変化を<br>
+		グラフで表示します。</p>
+      </div>
+    </div>
   </div>
 </body>
