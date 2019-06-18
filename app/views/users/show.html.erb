@@ -1,32 +1,40 @@
-<h1>管理者側:ユーザー詳細</h1>
-  <br>
-  <div class = 'users-box'>
-  	<br>
-	<ul>
-      <li class="name">
-		<h2> 名前　<%= @user.name %></h2>
-		<br>
-	  </li>
-	  <li class="gender">
-		<h3> 性別　<%= @user.gender %></h3>
-	  </li>
-	  <li class="height">
-		<h3> 身長　<%= @user.height %></h3>
-	  </li>
-	  <li class="weight">
-		<h3> 体重　<%= @user.latest_weight %></h3>
-	  </li>
-	  <li class="ideal_weight">
-		<h3> 目標体重　<%= @user.ideal_weight %></h3>
-      </li>
-	  <li class="age">
-		<h3> 年代　<%= @user.age %></h3>
-	  </li>
-	  <li class="email">
-	    <h3> メールアドレス　<%= @user.email %></h3>
-	  </li>
-    </ul>
-     <br>
-     <br>
-    <%= link_to "削除", users_index_path, class: "btn btn-danger user_#{@user.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %>
-</div>
+<body class="admin">
+<h1 class="big2">ユーザー 詳細</h1>
+  <div class="bigbox">
+    <br>
+    <br>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered detail">
+		    <tr>
+			  <th>名前</th>
+		      <td><h3 class="name-style"><%= @user.name %></h3></td>
+		    </tr>
+	        <tr>
+	  	      <th>性別</th>
+	  	      <td><p class="name-style"><%= @user.gender %>&nbsp;&nbsp;(1=女性,2=男性)</p></td>
+	        </tr>
+	        <tr>
+              <th>身長</th>
+              <td><p class="name-style"><%= @user.height %>&nbsp;cm</p></td>
+	        </tr>
+	        <tr>
+	          <th>体重</th>
+	          <td><p class="name-style"><%= @user.latest_weight %>&nbsp;kg</p></td>
+	        </tr>
+	        <tr>
+	  	      <th>目標体重</th>
+	  	      <td><p class="name-style"><%= @user.ideal_weight %>&nbsp;kg</p></td>
+	        </tr>
+	        <tr>
+              <th>年代</th>
+              <td><p class="name-style"><%= @user.age %>0代</p></td>
+	        </tr>
+	        <tr>
+	  	      <th>メールアドレス</th>
+	  	      <td><p class="name-style"><h4 class="name-style"><%= @user.email %></h4></p></td>
+	        </tr>
+        </table>
+      </div>
+      <%= link_to "削除", users_index_path, class: "btn btn-danger user_#{@user.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+  </div>
+</body>

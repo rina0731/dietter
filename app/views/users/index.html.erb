@@ -1,24 +1,24 @@
-<h1>管理者側のユーザー一覧ページ</h1>
-
-  <%= search_form_for @search do |f| %>
-    <div>
-      <%= f.label :name_cont, "Name" %>
-      <%= f.text_field :name_cont %>
-    </div>
-    <div class="actions"><%= f.submit "検索" %></div>
+<body class="admin">
+<h1 class="big2">ユーザー一覧</h1>
+<div class="bigbox">
     <br>
     <br>
-  <% end %>
-
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered">
+      <tr><th class="name">名前</th>
+      <th>登録日時</th>
+      <th>詳細ページへ</th></tr>
   <% @users.each do |user| %>
-    <div class="users-box">
-	    <h3>名前：<%= user.name %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "詳細", user_path(user.id) %>
-      </h3>
-      <br>
-      <br>
-    </div>
+      <tr><td class="name"><h4 class="name-style"><%= user.name %></h4></td>
+      <td><h4 class="name-style"><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></h4></td>
+      <td><h4 class="name-style"><%= link_to "詳細", user_path(user.id) %></h4></td>
+      </tr>
   <% end %>
+  </table>
+    </div>
+</div>
 
-  <div class="paginate">
+  <div class="pagination">
      <%= paginate @users %>
   </div>
+</body>

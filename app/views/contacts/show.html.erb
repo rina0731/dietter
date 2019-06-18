@@ -1,16 +1,31 @@
-<div class="contacts-box">
-  <h1>問い合わせ詳細</h1>
-  <br>
-  <br>
-  <br>
-  <br>
-  <p>タイトル</p>
-  <h2><%= @contact.contact_title %></h2>
-  <br>
-  <p>返信用メールアドレス</p>
-  <h3><%= @contact.reply %></h3>
-  <br>
-  <p>本文</p>
-  <h4><%= @contact.contact_text %></h3>
-  <br>
-</div>
+<body class="admin">
+  <h1 class="big2">お問い合わせ 詳細</h1>
+    <div class="bigbox">
+      <br>
+      <br>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="thead-light">
+            <tr>
+              <th class="c1">タイトル</th>
+            </tr>
+          </thead>
+            <tr>
+              <td><h3 class="name-style"><%= @contact.contact_title %></h3></td>
+            </tr>
+            <tr>
+              <th class="c2">返信用メールアドレス</th>
+            </tr>
+            <tr>
+              <td><h4 class="name-style"><%= @contact.reply %></h4></td>
+            </tr>
+            <tr>
+              <th class="c3">本文</th>
+            </tr>
+            <tr>
+              <td><p class="name-style"><%= @contact.contact_text %></p></td>
+            </tr>
+          </table>
+        </div>
+    </div>
+  </body>
