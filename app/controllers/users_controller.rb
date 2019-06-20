@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @search = User.search(params[:q])
+    @user = @search.result
     @users = @search.result.page(params[:page]).per(10)
     @user_id = current_user.id
   end

@@ -6,50 +6,48 @@
 
     <%= stylesheet_link_tag "application" %>
   <link href="/stylesheets/style.css" media="screen" rel="stylesheet" type="text/css" />
-
-
-
-<h1>MY PAGE</h1>
+<body>
+<div class="bigbox">
+<span class="enter">MY PAGE</span>
 
 <% if flash[:notice] %>
     <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <strong> Great! </strong>-- You did it succesfully --
-</div>
-  <% end %>
-
-  <main>
-	  <div class="space">
-	  </div>
-    <div class="flexbox">
-
-      <div class="linkbox">
-        <%= link_to "", weights_predict_path %>
-        <h2>体重予測</h2><br>
-        <h4 class="pale">PREDICT YOUR WEIGHT</h4>
-        <p><br><br>1日の摂取カロリーを入力すると、
-          あなたの体型や消費エネルギーなどから計算される体重の増減を予測します。</p>
-      </div>
-
-      <div class="linkbox">
-        <%= link_to "", weights_calc_path %>
-        <h2>カロリー目安計算</h2><br>
-        <h4 class="pale">CALCULATE CALORY</h4>
-        <p><br><br>目標体重と期間を入力すると、
-          それを実現するための1日の摂取
-          カロリーが表示されます。</p>
-      </div>
-
-      <div class="linkbox">
-        <%= link_to "", weights_path %>
-        <h2>体重管理</h2><br>
-        <h4 class="pale">WEIGHT CHART</h4>
-        <p><br><br>これまでの体重の変化をグラフで表示します。</p>
-      </div>
     </div>
-  </main>
+  <% end %>
+  <div class="space">
+    </div>
+    <div class="icon">MENU
+        <ul class="menu">
 
-  <% if current_user.admin == true %>
+    <li class="spread">
+          <a class="unit" href="/weights/calc">カロリー計算</a>
+    </li>
+
+    <li class="spread">
+          <a class="unit" href="/weights">体重グラフ</a>
+    </li>
+
+    <li class="spread">
+          <a class="unit" href="/users/edit">設定</a>
+    </li>
+
+    <li class="spread">
+          <a class="unit" href="#">updating</a>
+    </li>
+
+    <li class="spread">
+          <a class="unit" href="/weights/predict">体重予測</a>
+    </li>
+
+
+  </ul>
+  </div>
+</div>
+<% if current_user.admin == true %>
     <%= link_to "ユーザー一覧", users_path  %>
     <%= link_to "問い合わせ一覧", contacts_path  %>
   <% end %>
+</body>
+</head>

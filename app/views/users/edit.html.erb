@@ -1,5 +1,5 @@
-<h1>プロフィール編集</h1>
-
+<div class="bigbox">
+  <span class="enter">プロフィール編集</span>
   <% if @user.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <ul>
@@ -44,15 +44,15 @@
     <div class="field">
       <%= f.label :メールアドレス %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+    </div><br><br>
 
-    <% if @user.weights.exists? %><!--同じ日付のレコードがあれば-->
+  <% if @user.weights.exists? %><!--同じ日付のレコードがあれば-->
       <% if @user.weights.last.updated_at == Date.today %><!--同じ日付のレコードがあれば-->
         <div class="actions">
         <%= f.submit "更新" %>
         </div>
       <% else %>
-        <h2 class="attention">体重の更新は１日１回までです！</h2>
+        <div class="alert alert-danger" role="alert"><strong>※ 注意</strong> - - 体重の更新は１日１回までです　- - </div>
       <% end %>
 
     <% else %>
@@ -65,3 +65,4 @@
 
     <%= link_to "アカウントを削除する", users_delete_path(current_user.id) %>
   <% end %>
+</div>

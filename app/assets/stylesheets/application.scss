@@ -189,6 +189,110 @@ a.start:hover {
 
 /*マイページ:*/
 
+/*@import "compass/css3";*/
+
+           $li: 5; /* [1] */
+    $icon-size: 140px; /* [2] */
+    $menu-size: 400px / 2; /* [3] */
+    $unit-size: 50px;  /* [4] */
+$menu-position: (($menu-size * 2) - $icon-size) / -2;
+       $offset: 100px; /* [5] */
+          $deg: 360deg / $li; /* [6] */
+
+/* Styles: */
+.icon {
+  /*margin-top: 100px;*/
+  /*top: 70%;*/
+  position: relative;
+    background: white;
+    cursor: pointer;
+    margin: auto;
+    color: deepskyblue;
+    border-radius: 50%;
+  height: $icon-size;
+    width: $icon-size;
+    line-height: $icon-size;
+  text-align: center;
+    font-size: 2.75em;
+    font-weight: bold;
+    transition: 0.24s 0.2s;
+}
+
+.icon:hover {
+    background: rgba(white,0.75);
+}
+
+.menu {
+  position: absolute;
+  top: $menu-position;
+  left: $menu-position;
+  border: $menu-size solid transparent;
+  cursor: default;
+  border-radius: 50%;
+  transform: scale(0);
+    transition: transform 1.4s 0.07s;
+    z-index: -5;
+}
+
+.spread {
+    position: absolute;
+    top: -($offset);
+    left: -($offset);
+    transform-origin: $offset $offset;
+    transition: all 0.5s 0.1s;
+}
+
+.icon:hover {
+     .menu {
+         transition: transform 0.4s 0.08s,
+                                        z-index   0s  0.5s;
+     transform: scale(1.7);
+     z-index: 5;
+     }
+     .spread, .unit {
+         transition: all 0.6s;
+     }
+
+     @for $m from 1 through $li {
+       .spread:nth-child(#{$m}) {
+            transition-delay: $m * 0.02s;
+            transform: rotate(45 + $deg * $m);
+            .unit {
+                 transition-delay: $m * 0.04s;
+                 transform: rotate(-$deg * $m + 720 - 45);
+            }
+       }
+  }
+}
+
+.unit {
+    position: absolute;
+    background: white;
+    font-size: 25%;
+  text-decoration: none;
+    width: $unit-size*1.4;
+    height: $unit-size*1.4;
+    line-height: $unit-size*1.4;
+    color: dodgerblue;
+    border-radius: 50%;
+    transition: 0.6s;
+}
+
+a,ul,li {
+  margin:0;outline:0;padding:0;list-style:none
+  }
+
+html,body {
+  height:100%;
+  min-height:$menu-size*2;
+  }
+
+body {
+  font-family:sans-serif;
+  background:radial-gradient(deepskyblue,dodgerblue);
+  transform:translate3d(0,0,0)
+  }
+
 h4.pale {
    color: rgba(0,100,255,0.2);
 }
@@ -288,7 +392,7 @@ h4.devise {
 .bigbox {
   margin: auto;
   text-align: center;
-  margin: 100px;
+  margin: 50px 100px;
 }
 
 .enter {
@@ -339,6 +443,47 @@ h2.attention {
   color: rgba(255,255,255,0.3);
   text-align: center;
   margin: 100px;
+}
+
+li {
+  text-align: center;
+}
+
+.fa-chevron-circle-right {
+  left : 1em;
+  color: #4169e1;
+}
+
+
+.alert-danger {
+  width: 50%;
+  margin: auto;
+}
+
+　.btn-default {
+  left: 500px;
+}
+
+.form-control {
+  position:relative;/*フォームの相対位置*/
+  max-width:270px;/*フォームのサイズ*/
+  margin-bottom:15px;/*フォームの下に余白*/
+  margin: auto;
+}
+
+.button1 {
+  display:block;
+  position:relative;
+  margin: auto;
+  width: 70px;
+}
+
+.button1 i{
+  position:absolute;
+  top:50%;
+  left: 3px;
+  margin-top:-0.5em;
+  color:#0070be;
 }
 
 /*管理者側のページ*/
@@ -437,5 +582,5 @@ p.name-style {
 }
 
 .pagination {
-  margin: auto;
+  text-align: center;
 }

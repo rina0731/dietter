@@ -1,24 +1,38 @@
 <body class="admin">
-<h1 class="big2">ユーザー一覧</h1>
-<div class="bigbox">
-    <br>
-    <br>
-    <div class="table-responsive">
-      <table class="table table-hover table-bordered">
-      <tr><th class="name">名前</th>
-      <th>登録日時</th>
-      <th>詳細ページへ</th></tr>
-  <% @users.each do |user| %>
-      <tr><td class="name"><h4 class="name-style"><%= user.name %></h4></td>
-      <td><h4 class="name-style"><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></h4></td>
-      <td><h4 class="name-style"><%= link_to "詳細", user_path(user.id) %></h4></td>
-      </tr>
-  <% end %>
-  </table>
-    </div>
-</div>
+  <h1 class="big2">ユーザー一覧</h1>
+    <div class="bigbox">
 
-  <div class="pagination">
-     <%= paginate @users %>
+      <%= search_form_for @search do |f| %>
+        <br>
+        <br>
+        <br>
+          <div class="form-group">
+            <%= f.text_field :name_cont, class: "form-control" %>
+            <button type="submit" class="button1">
+              <i class="fas fa-search"></i>検索
+            </button>
+     <% end %>
+
+      <br>
+      <br>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <tr><th class="name">名前</th>
+          <th>登録日時</th>
+          <th>詳細ページへ</th></tr>
+
+            <% @users.each do |user| %>
+              <tr><td class="name"><h4 class="name-style"><%= user.name %></h4></td>
+              <td><h4 class="name-style"><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></h4></td>
+              <td><h4 class="name-style"><%= link_to "詳細", user_path(user.id) %></h4></td>
+              </tr>
+            <% end %>
+        </table>
+      </div>
+
+    <div class="pagination">
+      <%= paginate @users %>
+    </div>
   </div>
+</div>
 </body>
