@@ -1,5 +1,5 @@
 <div class="bigbox">
-  <span class="enter">プロフィール編集</span>
+  <span class="big-letter">プロフィール編集</span>
   <% if @user.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <ul>
@@ -46,7 +46,7 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div><br><br>
 
-  <% if @user.weights.exists? %><!--同じ日付のレコードがあれば-->
+<% if @user.weights.exists? %><!--同じ日付のレコードがあれば-->
       <% if @user.weights.last.updated_at == Date.today %><!--同じ日付のレコードがあれば-->
         <div class="actions">
         <%= f.submit "更新" %>

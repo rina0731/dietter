@@ -23,8 +23,8 @@
 
             <% @users.each do |user| %>
               <tr><td class="name"><h4 class="name-style"><%= user.name %></h4></td>
-              <td><h4 class="name-style"><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></h4></td>
-              <td><h4 class="name-style"><%= link_to "詳細", user_path(user.id) %></h4></td>
+              <td><h4 class="dark"><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></h4></td>
+              <td><h4 class="dark"><%= link_to "詳細", user_path(user.id) %></h4></td>
               </tr>
             <% end %>
         </table>

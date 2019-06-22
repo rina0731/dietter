@@ -14,9 +14,9 @@
           </tr>
         <% @contacts.each do |contact| %>
           <tr>
-	          <td class="c1"><h4 class="name-style"><%= contact.contact_title %></h4></td>
-	          <td class="c2"><p class="name-style"><%= contact.contact_text %></p></td>
-            <td class="c3"><h3 class="name-style"><%= link_to "詳細", contact_path(contact.id) %></h3></td>
+	          <td class="c1"><h4 class="dark"><%= contact.contact_title %></h4></td>
+	          <td class="c2"><p class="dark"><%= contact.contact_text %></p></td>
+            <td class="c3"><h3 class="dark"><%= link_to "詳細", contact_path(contact.id) %></h3></td>
           </tr>
 	      <% end %>
       </table>

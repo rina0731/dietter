@@ -17,7 +17,18 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ .img {
+  width: 100%;
+  height: 350px;
+  background-color: #91b4d8;
+}
+
 /*共通部分：ヘッダー・フッター*/
+
+* {
+  color: #4e5665;
+ font-family: "Yu Gothic";
+}
 
 #wrapper {
   display: flex;
@@ -70,29 +81,6 @@ p.fotter-text {
   float: left;
 }
 
-ul {
-  list-style: none;
-  margin: 0 0 0 auto;
-}
-
-.header {
-  font-family: "Moon";
-  font-weight: bold;
-  display: inline-block;
-  font-size: 25px;
-  margin: 2%;
-  float: right;
-  display:inline-block;
-}
-
-.visual-text {
-  text-align: center;
-  font-family: "Moon";
-  font-size: 40px;
-  color: rgba(255,255,255,0.6);
-  padding-top: 25%;
-}
-
 a.start {
   margin:0 auto;
   display:block;
@@ -114,6 +102,29 @@ a.start {
 a.start:hover {
   color: #333;
   background: #fff;
+}
+
+ul {
+  list-style: none;
+  margin: 0 0 0 auto;
+}
+
+.header {
+  font-family: "Moon";
+  font-weight: bold;
+  display: inline-block;
+  font-size: 25px;
+  margin: 2%;
+  float: right;
+  display:inline-block;
+}
+
+.visual-text {
+  text-align: center;
+  font-family: "Moon";
+  font-size: 40px;
+  color: rgba(255,255,255,0.6);
+  padding-top: 25%;
 }
 
 .subject {
@@ -168,7 +179,6 @@ a.start:hover {
 }
 
 .card {
-  /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 30%;
@@ -177,19 +187,15 @@ a.start:hover {
   margin: 20px;
 }
 
-/* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-/* Add some padding inside the card container */
 .container {
   padding: 5px 30px;
 }
 
 /*マイページ:*/
-
-/*@import "compass/css3";*/
 
            $li: 5; /* [1] */
     $icon-size: 140px; /* [2] */
@@ -199,10 +205,7 @@ $menu-position: (($menu-size * 2) - $icon-size) / -2;
        $offset: 100px; /* [5] */
           $deg: 360deg / $li; /* [6] */
 
-/* Styles: */
 .icon {
-  /*margin-top: 100px;*/
-  /*top: 70%;*/
   position: relative;
     background: white;
     cursor: pointer;
@@ -283,14 +286,7 @@ a,ul,li {
   }
 
 html,body {
-  height:100%;
   min-height:$menu-size*2;
-  }
-
-body {
-  font-family:sans-serif;
-  background:radial-gradient(deepskyblue,dodgerblue);
-  transform:translate3d(0,0,0)
   }
 
 h4.pale {
@@ -322,8 +318,8 @@ h4.pale {
 
 .linkbox:before {
  content: '＊';
- color: #fff; /* 左上の花の色 */
- font-size: 50px; /* 左上の花のサイズ */
+ color: #fff;
+ font-size: 50px;
  font-weight: bold;
  position: absolute;
  top: -38px;
@@ -337,8 +333,8 @@ h4.pale {
 
 .linkbox:after {
  content: '*';
- color: #fff; /* 右下の花の色 */
- font-size: 80px; /* 右下の花のサイズ */
+ color: #fff;
+ font-size: 80px;
  font-weight: bold;
  position: absolute;
  bottom: -45px;
@@ -350,7 +346,7 @@ h4.pale {
  text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf; /* 右下の花の縁取りの色 */
 }
 
-.linkbox a:hover{/* マウスオーバー時に色変更*/
+.linkbox a:hover {
     opacity: 0.1;
     background-color: #000000;
 }
@@ -361,19 +357,127 @@ h4.pale {
 
 /*個別機能ページ*/
 
-.upper {
-  background-color: #b3e5fc;
-  border-bottom: solid 3px #29b6f6;
+#gradient {
+  width: 100%;
+  height: 340px;
+  padding: 0px;
+  margin-bottom: 10px;
 }
 
-.display {
-  padding: 20px 60px;
-  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%);
-  margin-bottom: 30px;
+$items: 4;
+$animation-time: 4s;
+$transition-time: .5s;
+$scale: 20%;
+
+$total-time: ($animation-time * $items);
+$scale-base-1: (1 + $scale / 100%);
+
+.slideshow {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
+
+.slideshow-image {
+  position: absolute;
+  width: 100%;
+  height: 47%;
+  background: no-repeat 50% 50%;
+  background-size: cover;
+  animation-name: kenburns;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: $total-time;
+  opacity: 1;
+  transform: scale($scale-base-1);
+
+  @for $i from 1 through $items {
+    &:nth-child(#{$i}) {
+      animation-name: kenburns-#{$i};
+      z-index: ($items - $i);
+    }
+  }
+}
+
+@for $i from 1 through $items {
+  @keyframes kenburns-#{$i} {
+    $animation-time-percent: percentage($animation-time / $total-time);
+    $transition-time-percent: percentage($transition-time / $total-time);
+
+    $t1: ($animation-time-percent * ($i - 1) - $transition-time-percent / 2);
+    $t2: ($animation-time-percent * ($i - 1) + $transition-time-percent / 2);
+    @if($t1 < 0%) { $t1: 0%; }
+    @if($t2 < 0%) { $t2: 0%; }
+
+    $t3: ($animation-time-percent * ($i) - $transition-time-percent / 2);
+    $t4: ($animation-time-percent * ($i) + $transition-time-percent / 2);
+    @if($t3 > 100%) { $t3: 100%; }
+    @if($t4 > 100%) { $t4: 100%; }
+
+    $t5: (100% - $transition-time-percent / 2);
+    $t6: (($t4 - $t1) * 100% / $t5);
+
+    #{$t1} { opacity: 1; transform: scale($scale-base-1); }
+    #{$t2} { opacity: 1; }
+    #{$t3} { opacity: 1; }
+    #{$t4} { opacity: 0; transform: scale(1); }
+
+    @if($i != $items) {
+      100% { opacity: 0; transform: scale($scale-base-1); }
+    }
+
+    @if($i == 1) {
+      $scale-plus: ($scale * (100% - $t5) / $t4);
+      $scale-plus-base-1: (1 + ($scale + $scale-plus) / 100%);
+
+      #{$t5} { opacity: 0; transform: scale($scale-plus-base-1); }
+      100% { opacity: 1; }
+    }
+  }
+}
+
+
+// Presentational stuff
+h1.effect {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 99;
+  text-align: center;
+  font-family: Raleway, sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-color: rgba(255,255,255,.75);
+  box-shadow: 0 1em 2em -1em rgba(0,0,0,.5);
+  padding: 1em 2em;
+  line-height: 1.5;
+
+  small {
+    display: block;
+    text-transform: lowercase;
+    font-size: .7em;
+
+    &:first-child {
+      border-bottom: 1px solid rgba(0,0,0,.25);
+      padding-bottom: .5em;
+    }
+
+    &:last-child {
+      border-top: 1px solid rgba(0,0,0,.25);
+      padding-top: .5em;
+    }
+  }
+}
+
 
 .alert {
   margin-top: 50px;
+}
+
+main {
+  margin: 20px;
 }
 
 /*その他ユーザーページ*/
@@ -392,10 +496,10 @@ h4.devise {
 .bigbox {
   margin: auto;
   text-align: center;
-  margin: 50px 100px;
+  margin: 30px 100px;
 }
 
-.enter {
+.big-letter {
   font-family: "Moon";
   font-weight: bold;
   font-size: 60px;
@@ -465,9 +569,9 @@ li {
 }
 
 .form-control {
-  position:relative;/*フォームの相対位置*/
-  max-width:270px;/*フォームのサイズ*/
-  margin-bottom:15px;/*フォームの下に余白*/
+  position:relative;
+  max-width:270px;
+  margin-bottom:15px;
   margin: auto;
 }
 
@@ -486,10 +590,17 @@ li {
   color:#0070be;
 }
 
+.middle-letter {
+  font-weight: bold;
+  text-align: center;
+  color: #4e5665;
+}
+
+
 /*管理者側のページ*/
 
 .big2 {
-  font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+  font-family:"Yu Gothic";
   font-weight: bold;
   font-size: 45px;
   text-align: center;
@@ -562,18 +673,17 @@ table td {
   width: 40%;
 }
 
-.name-style {
+.dark {
   font-weight: bold;
   font-size: 20px;
   text-align: center;
-  color: #4e5665;
 }
 
-h3.name-style {
+h3.dark {
   font-size: 25px;
 }
 
-p.name-style {
+p.dark {
   font-size: 15px;
 }
 

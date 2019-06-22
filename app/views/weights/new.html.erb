@@ -1,100 +1,95 @@
-<div class="upper">
-　<h1>体重予測</h1>
-</div>
-  <div class="display">
-    <h4>
-      <% time = Time.now # Thu Dec 24 00:00:00 +0900 2011  %>
-      <%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %>
-    </h4>
-
-    <h2><%= @user.latest_weight %> kg</h2>
-
-    <h2> BMI<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).round(2) %></h2>
-  </div>
-
-  <h3>１日の摂取カロリーを入力してください </h3>
-
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.scss">
+</head>
 
-  <body>
+<body class="home">
+  <div class="img">
+  <h1 class="effect"><small>体重予測</small>
+    <% time = Time.now %>
+      <%= time.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[Time.now.wday]})") %><br>
+      体重&nbsp;<%= @user.latest_weight %> kg<br>
+       BMI&nbsp;<%= (@user.latest_weight / ( @user.height / 100.0 ) ** 2).round(2) %>
+  </small></h1>
+</div>
+    <h3 class="dark">１日の摂取カロリーを入力してください </h3><br>
 
-  <script>
+    <script>
 
-  // ボタンの要素を取得
-  var button = document.getElementById("button");
+       // ボタンの要素を取得
+      var button = document.getElementById("button");
 
-  // ボタンをクリックした時の処理
-  button.addEventListener("click", function(e) {
+      // ボタンをクリックした時の処理
+      button.addEventListener("click", function(e) {
 
-  e.preventDefault();
+      e.preventDefault();
 
-  // 2つの入力フォームの値を取得
-  var textForm1 = document.getElementById("textForm1").value;
-  var textForm2 = document.getElementById("textForm2").value;
+      // 2つの入力フォームの値を取得
+      var textForm1 = document.getElementById("textForm1").value;
+      var textForm2 = document.getElementById("textForm2").value;
 
-  // 2つの数値を足す
-  var sum = parseInt(textForm1, 10) + parseFloat(textForm2, 10);
+      // 2つの数値を足す
+      var sum = parseInt(textForm1, 10) + parseFloat(textForm2, 10);
 
-  // 足し算の結果を別の入力フォームに表示
-  var resultForm = document.getElementById("resultForm");
-  resultForm.value = sum;
-  });
+      // 足し算の結果を別の入力フォームに表示
+      var resultForm = document.getElementById("resultForm");
+      resultForm.value = sum;
+      });
 
-  </script>
+    </script>
 
-    <form>
-      <label for="textForm">合計</label>
-      <input type="text" id="textForm"><span>cal</span><br>
-      <button id="button">計算</button>
-    </form><br><br>
+      <form>
+        <label for="textForm">合計</label>
+        <input type="text" id="textForm"><span>cal</span><br>
+        <button id="button">計算</button>
+      </form>
+      <br>
 
-    <form>
-      <label for="resultForm">予想体重</label>
-      <input type="text" id="resultForm"><span>kg</span>
-    </form>
+      <form>
+        <label for="resultForm">予想体重</label>
+        <input type="text" id="resultForm"><span>kg</span>
+      </form>
+      <br>
 
-
-  <script>
-
-  // ボタンの要素を取得
-  var button = document.getElementById("button");
-
-  // ボタンをクリックした時の処理
-  button.addEventListener("click", function(e) {
-
-  e.preventDefault();
-
-  // 入力フォームの値を取得
-  var textForm = document.getElementById("textForm").value;
-  var weight = <%= raw @user.latest_weight.to_json %>
-  // console.log(weight + "json");
-  weight = Number(weight);
-  var burncalory = (weight * 23.6) /0.6;
-  console.log(burncalory);
-
-  // 数値を四則計算
-　var total = parseFloat(textForm, 10) - parseFloat(burncalory, 10);
-
-  // 取得した値を別の入力フォームに表示
-  var resultForm = document.getElementById("resultForm");
-  //1kg=約7000calなので
-  resultForm.value = total /7000;
-  // 小数点第3位を四捨五入
-  resultForm.value = Math.round(resultForm.value *100) /100;
-
-  //時間があれば今の体重に取得した値を足したものを表示させる。
-  //運動量と年代から計算式をif文で作り式を複雑化する。
-  });
-
-  </script>
-
-    <div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert">
       <strong>注意！
-      </strong> - 結果には個人差があります。こちらの数値は計算上で得られる結果であり、実際の体重変化とは差があります。体重管理の目安としてお使いください。
+     </strong> - 結果には個人差があります。こちらの数値は計算上で得られる結果であり、実際の体重変化とは差があります。体重管理の目安としてお使いください。
     </div>
-  </body>
+    <script>
+
+      // ボタンの要素を取得
+      var button = document.getElementById("button");
+
+      // ボタンをクリックした時の処理
+      button.addEventListener("click", function(e) {
+
+      e.preventDefault();
+
+      // 入力フォームの値を取得
+      var textForm = document.getElementById("textForm").value;
+      var weight = <%= raw @user.latest_weight.to_json %>
+      // console.log(weight + "json");
+      weight = Number(weight);
+      var burncalory = (weight * 23.6) /0.6;
+      console.log(burncalory);
+
+      // 数値を四則計算
+  　  var total = parseFloat(textForm, 10) - parseFloat(burncalory, 10);
+
+      // 取得した値を別の入力フォームに表示
+      var resultForm = document.getElementById("resultForm");
+      //1kg=約7000calなので
+      resultForm.value = total /7000;
+      // 小数点第3位を四捨五入
+      resultForm.value = Math.round(resultForm.value *100) /100;
+
+      //時間があれば今の体重に取得した値を足したものを表示させる。
+      //運動量と年代から計算式をif文で作り式を複雑化する。
+      });
+
+    </script>
+
+</body>
 </html>
