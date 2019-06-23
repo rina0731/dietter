@@ -1,9 +1,9 @@
 <body class="admin">
-<h1 class="big2">ユーザー 詳細</h1>
+<h1 class="big-letter">ユーザー 詳細</h1>
   <div class="bigbox">
     <br>
     <br>
-    <br><br><br>
+    <br>
       <div class="table-responsive">
         <table class="table table-hover table-bordered detail">
 		    <tr>
@@ -36,6 +36,6 @@
 	        </tr>
         </table>
       </div>
-      <%= link_to "削除", users_index_path, class: "btn btn-danger user_#{@user.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+      <%= link_to "削除", users_index_path, class: "btn  btn-lg btn-danger user_#{@user.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %>
   </div>
 </body>

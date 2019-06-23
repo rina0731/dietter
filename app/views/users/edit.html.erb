@@ -46,14 +46,16 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div><br><br>
 
-<% if @user.weights.exists? %><!--同じ日付のレコードがあれば-->
-      <% if @user.weights.last.updated_at == Date.today %><!--同じ日付のレコードがあれば-->
-        <div class="actions">
-        <%= f.submit "更新" %>
-        </div>
-      <% else %>
-        <div class="alert alert-danger" role="alert"><strong>※ 注意</strong> - - 体重の更新は１日１回までです　- - </div>
-      <% end %>
+    <% if @user.weights.exists? %>
+        <% if @user.weights.last.updated_at == Date.today %>
+          <div class="actions">
+            <%= f.submit "更新" %>
+         </div>
+        <% else %>
+          <div class="actions">
+          </div>
+          <div class="alert alert-danger" role="alert"><strong>※ 注意</strong> - - 体重の更新は１日１回までです　- - </div>
+        <% end %>
 
     <% else %>
       <div class="actions">

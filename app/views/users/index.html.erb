@@ -1,11 +1,8 @@
 <body class="admin">
-  <h1 class="big2">ユーザー一覧</h1>
+  <h1 class="big-letter">ユーザー一覧</h1>
     <div class="bigbox">
 
       <%= search_form_for @search do |f| %>
-        <br>
-        <br>
-        <br>
           <div class="form-group">
             <%= f.text_field :name_cont, class: "form-control" %>
             <button type="submit" class="button1">

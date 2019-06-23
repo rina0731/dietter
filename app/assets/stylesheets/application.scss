@@ -17,17 +17,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .img {
-  width: 100%;
-  height: 350px;
-  background-color: #91b4d8;
-}
-
 /*共通部分：ヘッダー・フッター*/
 
 * {
   color: #4e5665;
  font-family: "Yu Gothic";
+}
+
+h,p {
+color: #4e5665;
 }
 
 #wrapper {
@@ -57,11 +55,16 @@ p.fotter-text {
     font-size: 18px;
     margin-top: 0px;
     padding: 1em;
-    background-color: #b3e5fc;
-    border: solid 3px #29b6f6;
+    background-color: #bfdafe;
+    border: solid 2px #4365de;
 }
 
 /*トップページ*/
+
+a {
+color: rgba(67,101,222,0.6);
+text-decoration:underline;
+}
 
 .visual {
   width: 100%;
@@ -75,8 +78,8 @@ p.fotter-text {
 .big {
   font-family: "Moon";
   font-weight: bold;
-  font-size: 60px;
-  color: rgba(255,255,255,0.3);
+  font-size: 70px;
+  color: rgba(67,101,222,0.6);
   margin: 20px;
   float: left;
 }
@@ -97,6 +100,7 @@ a.start {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 20px;
   line-height: 5px;
+  margin-top: 30%;
 }
 
 a.start:hover {
@@ -119,36 +123,40 @@ ul {
   display:inline-block;
 }
 
-.visual-text {
+.caption {
+  position: relative;
+  color: white;
+  background-color: rgba(67,101,222,0.7);
+  line-height: 0.8;
+  padding: 0.5em 0.5em 0.5em 1.5em;
   text-align: center;
   font-family: "Moon";
-  font-size: 40px;
-  color: rgba(255,255,255,0.6);
-  padding-top: 25%;
+  font-weight: bold;
+  width: 80%;
 }
 
-.subject {
-  margin: 50px 200px;
-  position: relative;
-  padding: 0.5em;
-  background: #a6d3c8;
-  color: white;
-}
-
-.subject::before {
+.caption:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f14a";
   position: absolute;
-  content: '';
-  top: 100%;
-  left: 0;
-  border: none;
-  border-bottom: solid 15px transparent;
-  border-right: solid 20px rgb(149, 158, 155);
+  left : 2em;
+}
+
+.info {
+  line-height: 1.8;
+  font-weight: bold;
+  font-family: "Yu Gothic";
+}
+
+.about {
+  margin: auto;
+  padding-left: 100px;
 }
 
 .feature {
   font-family: "Moon";
   font-weight: bold;
-  color: rgba(0,100,255,0.2);
+  color: rgba(67,101,222,0.8);
 }
 
 .container{
@@ -197,20 +205,20 @@ ul {
 
 /*マイページ:*/
 
-           $li: 5; /* [1] */
-    $icon-size: 140px; /* [2] */
-    $menu-size: 400px / 2; /* [3] */
-    $unit-size: 50px;  /* [4] */
+           $li: 5;
+    $icon-size: 140px;
+    $menu-size: 200px / 2;
+    $unit-size: 50px;
 $menu-position: (($menu-size * 2) - $icon-size) / -2;
-       $offset: 100px; /* [5] */
-          $deg: 360deg / $li; /* [6] */
+       $offset: 100px;
+          $deg: 360deg / $li;
 
 .icon {
   position: relative;
     background: white;
     cursor: pointer;
     margin: auto;
-    color: deepskyblue;
+    color: rgba(67,101,222,0.6);
     border-radius: 50%;
   height: $icon-size;
     width: $icon-size;
@@ -222,7 +230,7 @@ $menu-position: (($menu-size * 2) - $icon-size) / -2;
 }
 
 .icon:hover {
-    background: rgba(white,0.75);
+    background: rgba(white,0.5);
 }
 
 .menu {
@@ -285,77 +293,17 @@ a,ul,li {
   margin:0;outline:0;padding:0;list-style:none
   }
 
-html,body {
-  min-height:$menu-size*2;
-  }
-
-h4.pale {
-   color: rgba(0,100,255,0.2);
-}
-
-.linkbox {
-    position: relative;
-    height: 350px;
-    width: 30%;
-    padding: 25px;
-    margin: 20px;
-    float: left;
-    border: 2px dotted #EAA8BF;
-}
-
-.linkbox a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
-}
-
-.linkbox {
-
-    border: 2px dotted #EAA8BF;
-}
-
-.linkbox:before {
- content: '＊';
- color: #fff;
- font-size: 50px;
- font-weight: bold;
- position: absolute;
- top: -38px;
- left: -25px;
- transform: rotate(20deg);
- -moz-transform: rotate(20deg);
- -webkit-transform: rotate(20deg);
- -o-transform: rotate(20deg);
- text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf; /* 左上の花の縁取りの色 */
-}
-
-.linkbox:after {
- content: '*';
- color: #fff;
- font-size: 80px;
- font-weight: bold;
- position: absolute;
- bottom: -45px;
- right: -15px;
- transform: rotate(20deg);
- -moz-transform: rotate(20deg);
- -webkit-transform: rotate(20deg);
- -o-transform: rotate(20deg);
- text-shadow:  0 0 8px #eaa8bf, 0 0 6px #eaa8bf, 0 0 4px #eaa8bf, 0 0 2px #eaa8bf, 0 0 0.5px #eaa8bf; /* 右下の花の縁取りの色 */
-}
-
-.linkbox a:hover {
-    opacity: 0.1;
-    background-color: #000000;
-}
-
 .space {
   height: 120px;
 }
 
 /*個別機能ページ*/
+
+.img {
+  width: 100%;
+  height: 350px;
+  background-color: #bfdafe;
+}
 
 #gradient {
   width: 100%;
@@ -364,81 +312,8 @@ h4.pale {
   margin-bottom: 10px;
 }
 
-$items: 4;
-$animation-time: 4s;
-$transition-time: .5s;
-$scale: 20%;
-
-$total-time: ($animation-time * $items);
-$scale-base-1: (1 + $scale / 100%);
-
-.slideshow {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.slideshow-image {
-  position: absolute;
-  width: 100%;
-  height: 47%;
-  background: no-repeat 50% 50%;
-  background-size: cover;
-  animation-name: kenburns;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: $total-time;
-  opacity: 1;
-  transform: scale($scale-base-1);
-
-  @for $i from 1 through $items {
-    &:nth-child(#{$i}) {
-      animation-name: kenburns-#{$i};
-      z-index: ($items - $i);
-    }
-  }
-}
-
-@for $i from 1 through $items {
-  @keyframes kenburns-#{$i} {
-    $animation-time-percent: percentage($animation-time / $total-time);
-    $transition-time-percent: percentage($transition-time / $total-time);
-
-    $t1: ($animation-time-percent * ($i - 1) - $transition-time-percent / 2);
-    $t2: ($animation-time-percent * ($i - 1) + $transition-time-percent / 2);
-    @if($t1 < 0%) { $t1: 0%; }
-    @if($t2 < 0%) { $t2: 0%; }
-
-    $t3: ($animation-time-percent * ($i) - $transition-time-percent / 2);
-    $t4: ($animation-time-percent * ($i) + $transition-time-percent / 2);
-    @if($t3 > 100%) { $t3: 100%; }
-    @if($t4 > 100%) { $t4: 100%; }
-
-    $t5: (100% - $transition-time-percent / 2);
-    $t6: (($t4 - $t1) * 100% / $t5);
-
-    #{$t1} { opacity: 1; transform: scale($scale-base-1); }
-    #{$t2} { opacity: 1; }
-    #{$t3} { opacity: 1; }
-    #{$t4} { opacity: 0; transform: scale(1); }
-
-    @if($i != $items) {
-      100% { opacity: 0; transform: scale($scale-base-1); }
-    }
-
-    @if($i == 1) {
-      $scale-plus: ($scale * (100% - $t5) / $t4);
-      $scale-plus-base-1: (1 + ($scale + $scale-plus) / 100%);
-
-      #{$t5} { opacity: 0; transform: scale($scale-plus-base-1); }
-      100% { opacity: 1; }
-    }
-  }
-}
 
 
-// Presentational stuff
 h1.effect {
   position: absolute;
   top: 20%;
@@ -449,8 +324,9 @@ h1.effect {
   font-family: Raleway, sans-serif;
   font-weight: 300;
   text-transform: uppercase;
-  background-color: rgba(255,255,255,.75);
-  box-shadow: 0 1em 2em -1em rgba(0,0,0,.5);
+  background-color: rgba(255,255,255,.80
+    );
+  box-shadow: 0 1em 2em -1em rgba(0,0,0,.7);
   padding: 1em 2em;
   line-height: 1.5;
 
@@ -500,10 +376,10 @@ h4.devise {
 }
 
 .big-letter {
-  font-family: "Moon";
+  font-family: Moon,"Yu Gothic";
   font-weight: bold;
-  font-size: 60px;
-  color: rgba(255,255,255,0.3);
+  font-size: 50px;
+  color: rgba(67,101,222,0.6);
   text-align: center;
 }
 .line {
@@ -512,15 +388,6 @@ h4.devise {
 
 p.text {
   text-align: center;
-}
-
-.explain {
-  text-align: center;
-  margin: 20px;
-  font-family: "Hiragino Kaku Gothic ProN";
-  font-size: 25px;
-  font-weight: bold;
-  color: #ACB6E5;//非対応のブラウザでの文字色を設定
 }
 
 hr {
@@ -599,25 +466,6 @@ li {
 
 /*管理者側のページ*/
 
-.big2 {
-  font-family:"Yu Gothic";
-  font-weight: bold;
-  font-size: 45px;
-  text-align: center;
-  text-transform: uppercase;
-  display: block;
-  color: #8EB8FF;
-  text-shadow: 0 8px 9px #75A9FF, 0px -2px 1px #A4C6FF;
-  font-weight: bold;
-  letter-spacing: -4px;
-  position: absolute;
-  padding: 20px 70px;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 20px;
-}
-
 table tr:last-child{
   border-bottom: none;
 }
@@ -629,7 +477,7 @@ table{
 }
 
 table tr{
-  border-bottom: solid 4px white;
+  border-bottom: solid px white;
 }
 
 table tr:last-child{
