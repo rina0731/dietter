@@ -47,8 +47,11 @@
   </div>
 </div>
 <% if current_user.admin == true %>
-    <%= link_to "ユーザー一覧", users_path  %>
+  <li class="header">
+    <br><br>
+    <%= link_to "ユーザー一覧", users_path  %><br>
     <%= link_to "問い合わせ一覧", contacts_path  %>
+  </li>
   <% end %>
 </body>
 </head>

@@ -66,6 +66,10 @@ color: rgba(67,101,222,0.6);
 text-decoration:underline;
 }
 
+.fas {
+  size: 20px;
+}
+
 .visual {
   width: 100%;
   height: 820px;
@@ -121,6 +125,7 @@ ul {
   margin: 2%;
   float: right;
   display:inline-block;
+  line-height: 1.8;
 }
 
 .caption {
